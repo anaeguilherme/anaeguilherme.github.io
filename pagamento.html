@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pagamento</title>
+
+<style>
+body {
+font-family:Georgia;
+background:#fff5f7;
+text-align:center;
+padding:40px;
+}
+
+.box {
+background:#fde3ea;
+padding:25px;
+border-radius:12px;
+max-width:400px;
+margin:auto;
+}
+
+button {
+background:#d48fa3;
+border:none;
+padding:10px 15px;
+border-radius:8px;
+color:white;
+cursor:pointer;
+margin-top:10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Confirmar Presente</h2>
+
+<p><strong>Pix (CPF):</strong><br>
+05781802436</p>
+
+<button onclick="copiar()">Copiar chave Pix</button>
+
+<br><br>
+
+<a href="https://www.mercadopago.com.br">
+<button>Pagar com Cartão</button>
+</a>
+
+</div>
+
+<script>
+
+function copiar(){
+navigator.clipboard.writeText("05781802436");
+alert("Chave Pix copiada!");
+}
+
+</script>
+
+</body>
+</html>
