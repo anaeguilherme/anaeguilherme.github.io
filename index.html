@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casamento Ana & Guilherme</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background-color: #fffaf7;
+    color: #5a4a42;
+}
+
+header {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f3e8e3;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.section {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.hero-img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.countdown {
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+button {
+    margin-top: 15px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #c79a8b;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.gift-item {
+    background: #f7efeb;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background: #f3e8e3;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Ana & Guilherme</h1>
+    <p>05 de Dezembro de 2026 — Mossoró</p>
+
+    <img src="foto-principal.jpg" alt="Foto do casal" class="hero-img">
+
+    <div class="countdown" id="countdown"></div>
+</header>
+
+<div class="section">
+<h2>Nossa História</h2>
+
+<p>
+Conte aqui como vocês se conheceram, os momentos importantes e o pedido de casamento.
+</p>
+
+</div>
+
+<div class="section">
+<h2>Informações do Evento</h2>
+
+<h3>Cerimônia Religiosa</h3>
+<p>
+<strong>Igreja São Vicente</strong><br>
+Av. Alberto Maranhão — Mossoró
+</p>
+
+<h3>Recepção</h3>
+<p>
+<strong>Casa de Vidro</strong><br>
+Av. João da Escóssia — Mossoró
+</p>
+
+<p>
+<strong>Horário da Cerimônia:</strong><br>
+17:00 (Recepção logo após a cerimônia)
+</p>
+
+</div>
+
+<div class="section">
+<h2>Confirmação de Presença</h2>
+
+<form onsubmit="salvarConfirmacao(event)">
+<input type="text" id="nome" placeholder="Nome do convidado" required>
+
+<select id="pessoas" required>
+<option value="">Quantas pessoas irão?</option>
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+</select>
+
+<textarea id="mensagem" placeholder="Mensagem para os noivos (opcional)"></textarea>
+
+<button type="submit">Confirmar Presença</button>
+</form>
+
+<p id="confirmacao-msg"></p>
+
+</div>
+
+<div class="section">
+<h2>Lista de Presentes</h2>
+
+<div class="gift-item">
+<p><strong>☕ Café Especial para o Casal</strong></p>
+<p>Valor: R$ 150</p>
+</div>
+
+<div class="gift-item">
+<p><strong>🌅 Passeio Romântico</strong></p>
+<p>Valor: R$ 250</p>
+</div>
+
+<div class="gift-item">
+<p><strong>🍽️ Jantar Especial</strong></p>
+<p>Valor: R$ 500</p>
+</div>
+
+<div class="gift-item">
+<p><strong>🏨 Noite de Hotel</strong></p>
+<p>Valor: R$ 750</p>
+</div>
+
+<div class="gift-item">
+<p><strong>✈️ Passeio da Lua de Mel</strong></p>
+<p>Valor: R$ 900</p>
+</div>
+
+<div class="gift-item">
+<p><strong>🌴 Lua de Mel dos Sonhos</strong></p>
+<p>Valor: R$ 1200</p>
+</div>
+
+<p>
+<strong>Chave Pix:</strong><br>
+05781802436
+</p>
+
+</div>
+
+<div class="section">
+<h2>Galeria</h2>
+
+<div class="gallery-grid">
+
+<img src="foto1.jpg">
+<img src="foto2.jpg">
+<img src="foto3.jpg">
+<img src="foto4.jpg">
+
+</div>
+
+</div>
+
+<footer>
+<p>Com amor, Ana & Guilherme ❤️</p>
+</footer>
+
+<script>
+
+var countDownDate = new Date("Dec 5, 2026 17:00:00").getTime();
+
+setInterval(function() {
+
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+  document.getElementById("countdown").innerHTML =
+  days + " dias e " + hours + " horas para o grande dia";
+
+}, 1000);
+
+function salvarConfirmacao(event) {
+
+ event.preventDefault();
+
+ var nome = document.getElementById("nome").value;
+ var pessoas = document.getElementById("pessoas").value;
+ var mensagem = document.getElementById("mensagem").value;
+
+ var confirmacoes = JSON.parse(localStorage.getItem("confirmacoes")) || [];
+
+ confirmacoes.push({
+   nome: nome,
+   pessoas: pessoas,
+   mensagem: mensagem
+ });
+
+ localStorage.setItem("confirmacoes", JSON.stringify(confirmacoes));
+
+ document.getElementById("confirmacao-msg").innerHTML =
+ "Presença confirmada com sucesso!";
+
+ document.querySelector("form").reset();
+
+}
+
+</script>
+
+</body>
+</html>
